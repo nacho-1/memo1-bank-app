@@ -19,8 +19,6 @@ public class TransactionService {
     public Transaction createTransaction(Long cbu, Double sum, String type)
     {
         if (type.equalsIgnoreCase("deposit")) {
-            if (sum >= 2000)
-                sum = Math.min(sum * 1.1, sum + 500);
             accountService.deposit(cbu, sum);
         } else if (type.equalsIgnoreCase("withdrawal")) {
             accountService.withdraw(cbu, sum);
